@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Azure Overview\"\noutput: \n  html_document:\n    toc: true\n    toc_float: true\n    number_sections: false\n    code_folding: show\n---\n\n```{r, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n# Azure Overview\n\nAzure is a Microsoft Cloud Service.\n\n# MySQL\n\nInstructions for instantiating a MySQL database on Azure will be added later, currently this template simply extracts data from an existent database.\n\n## Connecting to the Database\n\nThe following details are necessary to access the database, note that the .csv file containing the username and password is not provided in this tutorial due to security concerns.\n\n```{r}\nlogin_details <- read.csv(file = \"azure_mysql_login.csv\", stringsAsFactors = F)\ndatabase_domain <- \"eu-cdbr-azure-north-e.cloudapp.net\"\ndatabase_name <- \"testdatabase2\"\n```\n\nConnect!\n\n```{r}\nlibrary(RMySQL)\nazure_connection <- dbConnect(\n  RMySQL::MySQL(),\n  dbname = database_name,\n  host = database_domain,\n  username = login_details$username,\n  password = login_details$password,\n  port = 3306\n  )\n\nRMySQL::dbGetInfo(azure_connection)\n```\n\nList tables:\n\n```{r}\ndbListTables(azure_connection)\n```\n\nRead tables\n\n```{r}\ndbReadTable(azure_connection, \"new_table\")\n```\n\n",
+    "created" : 1472132317286.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1714983512",
+    "id" : "90F83907",
+    "lastKnownWriteTime" : 1472136098,
+    "last_content_update" : 1472136098239,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Azure/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

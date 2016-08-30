@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "shinyUI(\n  fluidPage(\n    wellPanel(includeMarkdown(\"App_Description.Rmd\"),actionButton(\"update\", label = \"update\")),\n    dataTableOutput(\"summary\")\n  )\n)",
+    "created" : 1469096068788.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2809512698",
+    "id" : "499B0081",
+    "lastKnownWriteTime" : 1469095895,
+    "last_content_update" : 1469095895,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Dropbox/Dropbox_Cache_Example/ui.R",
+    "project_path" : "Dropbox_Cache_Example/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

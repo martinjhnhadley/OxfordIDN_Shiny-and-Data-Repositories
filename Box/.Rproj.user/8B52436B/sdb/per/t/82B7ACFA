@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "## =========================== Section Title ====================================\n## ==============================================================================\n\n\n\nlibrary(boxr)\n\n\nbox_auth(client_id = \"m2wypo7lyldmwe7w5kooh21y65dg17b4\", client_secret = \"K5amICAOLCcUxXFm3LAVJvsKf2iizH58\")\n\n\nbox_data_to_plot <- box_read_csv(file_id = \"68041898313\")\n\n\nlibrary(plotly)\n\nshiny\n\nplot_ly(data = box_data_to_plot,\n        x = X,\n        y = Y,\n        colors = terrain.colors(10))\n\nplot_ly(data = box_data_to_plot,\n        x = X,\n        y = Y,\n        colors = \"greens\")\n\nggplot(box_data_to_plot, aes(x = X, y = Y)) + geom_point(colour = \"red\")\n",
+    "created" : 1464795608862.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1530960236",
+    "id" : "82B7ACFA",
+    "lastKnownWriteTime" : 1464853843,
+    "last_content_update" : 1464853843086,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Box/boxr.R",
+    "project_path" : "boxr.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

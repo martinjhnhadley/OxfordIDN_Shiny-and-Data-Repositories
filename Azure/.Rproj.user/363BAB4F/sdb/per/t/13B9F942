@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "username, password\nbe6e7c8671423e, fba345fb\n",
+    "created" : 1472132573935.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2013275381",
+    "id" : "13B9F942",
+    "lastKnownWriteTime" : 1472132576,
+    "last_content_update" : 1472132576173,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Azure/azure_mysql_login.csv",
+    "project_path" : "azure_mysql_login.csv",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}

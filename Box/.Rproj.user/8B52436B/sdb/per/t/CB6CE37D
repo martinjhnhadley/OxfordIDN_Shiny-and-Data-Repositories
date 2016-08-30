@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "shinyUI(\n  fluidPage(\n    selectInput(\"colour\", label = \"colour\", choices = c(\"red\",\"blue\",\"green\")),\n    plotOutput(\"plotlyPlot\")\n  )\n)",
+    "created" : 1464795886633.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3199442228",
+    "id" : "CB6CE37D",
+    "lastKnownWriteTime" : 1464796367,
+    "last_content_update" : 1464796367304,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Box/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

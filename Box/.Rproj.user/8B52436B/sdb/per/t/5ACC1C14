@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(boxr)\nlibrary(shiny)\nlibrary(ggplot2)\n\nbox_auth(client_id = \"m2wypo7lyldmwe7w5kooh21y65dg17b4\", client_secret = \"K5amICAOLCcUxXFm3LAVJvsKf2iizH58\", interactive = F)\n\nshinyServer(\n  function(input, output){\n    \n    box_data_to_plot <- box_read_csv(file_id = \"68041898313\")\n    \n    output$plotlyPlot <- renderPlot({\n      \n      ggplot(box_data_to_plot, aes(x = X, y = Y)) + geom_point(colour = input$colour)\n      \n    })\n    \n  }\n)",
+    "created" : 1464795933094.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3073105150",
+    "id" : "5ACC1C14",
+    "lastKnownWriteTime" : 1464796725,
+    "last_content_update" : 1464796725401,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Box/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "<p>This Shiny app connects to a <a href=http://dropbox.com>Dropbox</a> account via the <a href=https://github.com/karthik/rdrop2>rdrop2</a> library and displays the data from this <a href=https://www.dropbox.com/s/yht5dt4o3ec7rof/UK_Prime_Ministers.csv?dl=0>file</a>.</p>\n\n<p>The app caches data by using persistent storage within the `appDir` on the hosted solution <a href=http://shinyapps.io>shinyapps.io</a>, by following this procedure whenever the \"submit\" button is pressed:</p>\n\n- Check remote file exists\n- FALSE: Import local file with most recent modification date\n- TRUE: Next step\n- Check remote file is newer than local files\n- TRUE: Download remote file to local directory and import\n- FALSE: Import local file with most recent modification date\n\n\n",
+    "created" : 1469096066914.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2778736186",
+    "id" : "E4068D9A",
+    "lastKnownWriteTime" : 1469095886,
+    "last_content_update" : 1469095886,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Dropbox/Dropbox_Cache_Example/App_Description.Rmd",
+    "project_path" : "Dropbox_Cache_Example/App_Description.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

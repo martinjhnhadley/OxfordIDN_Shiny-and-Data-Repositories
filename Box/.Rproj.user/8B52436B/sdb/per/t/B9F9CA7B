@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"OAuth\"\noutput: html_document\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n```{r libraries}\nlibrary(httr)\n```\n\n\n## References\n\n- General Box Documentation: https://docs.box.com/docs\n- \n\nIt is not possible to directly link to a shared file with a free account - https://community.box.com/t5/Collaboration-and-Sharing/Direct-Linking-To-A-File/ta-p/148\n\n## Oauth 2 Parameters\n\n```{r}\nclient_id <- \"m2wypo7lyldmwe7w5kooh21y65dg17b4\"\nclient_secret <- \"K5amICAOLCcUxXFm3LAVJvsKf2iizH58\"\nfile_id <- \"68041898313\"\n```\n\n\n```{r}\nbox_oauth2_url <- \"https://api.box.com/oauth2\"\n```\n\n\n## Box API Template\n\nIn the first step of authorisation you need to send the user to [http://account.box.com/api](http://account.box.com/api)\n\n```{r}\nbox_authorize_url <- \"http://account.box.com/api\"\n```\n\nThis is an example call to the authorize api:\n\n```{r}\nbox_example_authorize_call <- \"https://account.box.com/api/oauth2/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&state=security_token%3DKnhMJatFipTAnM0nHlZA\"\n```\n\n### Box Authorize Call\n\n#### GET (Doesn't work)\n\nConstruct an authorize GET request:\n\n```{r}\nbox_my_authorize_call <- paste0(\n  \"https://account.box.com/api/oauth2/authorize?response_type=code&client_id=\",\n  client_id,\n#   \"&redirect_uri=\",\n# YOUR_REDIRECT_URI,\n\"&state=security_token\",\nclient_secret\n)\n```\n\nMake the GET request \n\n```{r}\nlibrary(httr)\nGET(box_my_authorize_call)\nOaut\n```\n\n#### oauth with httr\n\nFollowing http://stackoverflow.com/q/19988160/1659890\n\n```{r}\nbox_oauth_endpoint <-\n  oauth_endpoint(\"requestToken\", \"authorize\", \"accessToken\", base_url = \"https://account.box.com/api/oauth2\")\n\nmyapp <-\n  oauth_app(\"ShinyApp\", key = client_id, secret = \"fefwef\")\n\nbox_token <- oauth2.0_token(box_oauth_endpoint, myapp)\n\nbox_token\n\nfoo <- config(token = box_token)\n```\n\nI need to then make a post request to https://api.box.com/oauth2/token as follows:\n\n```{r}\nPOST(\"https://api.box.com/oauth2/token\", config(token = box_token))\n```\n\n\n\nTry and use the API based on Hadley's documentation:\n\n```{r}\n\n\nreq <- GET(\"https://api.box.com/2.0/files\", config(token = box_token))\nreq\n\nstop_for_status(req)\ncontent(req)\n\n```\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1464853859367.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3317803193",
+    "id" : "B9F9CA7B",
+    "lastKnownWriteTime" : 1464864836,
+    "last_content_update" : 1464864836,
+    "path" : "~/Github/Live-Data_Scripts-and-Templates/Repositories/Box/OAuth.Rmd",
+    "project_path" : "OAuth.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

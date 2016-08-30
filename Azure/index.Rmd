@@ -1,0 +1,60 @@
+---
+title: "Azure Overview"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+    code_folding: show
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Azure Overview
+
+Azure is a Microsoft Cloud Service.
+
+# MySQL
+
+Instructions for instantiating a MySQL database on Azure will be added later, currently this template simply extracts data from an existent database.
+
+## Connecting to the Database
+
+The following details are necessary to access the database, note that the .csv file containing the username and password is not provided in this tutorial due to security concerns.
+
+```{r}
+login_details <- read.csv(file = "azure_mysql_login.csv", stringsAsFactors = F)
+database_domain <- "eu-cdbr-azure-north-e.cloudapp.net"
+database_name <- "testdatabase2"
+```
+
+Connect!
+
+```{r}
+library(RMySQL)
+azure_connection <- dbConnect(
+  RMySQL::MySQL(),
+  dbname = database_name,
+  host = database_domain,
+  username = login_details$username,
+  password = login_details$password,
+  port = 3306
+  )
+
+RMySQL::dbGetInfo(azure_connection)
+```
+
+List tables:
+
+```{r}
+dbListTables(azure_connection)
+```
+
+Read tables
+
+```{r}
+dbReadTable(azure_connection, "new_table")
+```
+
