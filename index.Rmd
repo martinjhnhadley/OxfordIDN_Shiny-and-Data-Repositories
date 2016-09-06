@@ -1,18 +1,32 @@
 ---
-title: "Data Repositories"
+title: "Connecting to Data Repositories with Shiny"
+author: "`r library(htmltools)
+HTML('<a href=http://idn.it.ox.ac.uk>Oxford University Interactive Data Network</a>')`"
+date: "`r paste0('Last Updated: ',format(Sys.time(), '%d %B, %Y'))`"
 output: 
   html_document:
     toc: true
     toc_float: true
     number_sections: false
-    code_folding: show
+    css: gh-pages_global/gh-pages_navbar.css
+    includes:
+      in_header: gh-pages_global/_navbar.html
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+library(htmltools)
 ```
 
-# What are Data Repositories?
+<a href="https://github.com/ox-it/OxfordIDN_Shiny-and-Data-Repositories" target="blank">  
+<img style="position: absolute; top: 0; right: 0; border: 0;",
+             src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png",
+             alt="Fork me on GitHub"/>
+</a>
 
 At there best, data repositories provide two functions:
 
@@ -22,13 +36,15 @@ At there best, data repositories provide two functions:
 
 These two functions are ever more important as research becomes more data-driven across every discipline, and as funders increasingly mandate Open Access not only for publications but also publication data. Already EPSRC requires that any metric or visualisation included in a publication based on work they funded must be made replicable by providing the underlying data.
 
-This document describes a number of data repositories and how one might use them to incorporate data hosted with these services into an interactive data visualisation built with [shiny](http://shiny.rstudio.com) and a number of other tools. Examples of what is described for each repository (if possible), include:
+# What's in these tutorial?
+
+These tutorials describes a number of data repositories and how one might use them to incorporate data hosted with these services into an interactive data visualisation built with [shiny](http://shiny.rstudio.com). Examples of what is described for each repository (if possible), include:
 
 - Reading data
 - Writing data
 - Caching data within a shiny app
 
-## Selecting a Data Repository
+# Different kinds of repositories?
 
 For the purposes of this document, there are three types of data repository:
 
@@ -38,7 +54,7 @@ For the purposes of this document, there are three types of data repository:
 
 In a future iteration of this document an interactive interface will be provided for the comparison of the different respositories.
 
-# Data Repositories
+## Data Repositories
 
 The repositories in this section all provide at least the following functionality:
 
@@ -48,16 +64,12 @@ The repositories in this section all provide at least the following functionalit
 
 Note that all repositories detailed have at least a free tier or otherwise are entirely free at the point of use.
 
-```{r child = 'Figshare/index.Rmd'}
-```
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/Figshare">Figshare</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/ORA-Data">ORA-Data</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/Figshare">Zenonod</a>
 
-```{r child = 'ORA-Data/index.Rmd'}
-```
 
-```{r child = 'Zenodo/index.Rmd'}
-```
-
-# Hosted Databases
+## Hosted Databases
 
 The repositories in this section all provide the following functionality:
 
@@ -67,35 +79,22 @@ The repositories in this section all provide the following functionality:
 
 Note that not all hosted databases described below provide a free tier.
 
-```{r child = 'AccessWebApp/index.Rmd'}
-```
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/hosted-databases/AccessWebApp">AccessWebApp</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/hosted-databases/Azure">Azure</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/hosted-databases/AWS">AWS</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/hosted-databases/ORDS">ORDS</a>
 
-```{r child = 'Azure/index.Rmd'}
-```
-
-```{r child = 'ORDS/index.Rmd'}
-```
-
-# File Sharing Repositories
+## File Sharing Repositories
 
 The repositories in this section all provide the following functionality:
 
 - Ability to synchronise files simply between devices
 - Controlled access, including public and private files
 
-
-```{r child = 'Box/index.Rmd'}
-```
-
-```{r child = 'Dropbox/index.Rmd'}
-```
-
-```{r child = 'GoogleDrive/index.Rmd'}
-```
-
-```{r child = 'OneDrive/index.Rmd'}
-```
-
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/file-sharing/Box">Box</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/file-sharing/Dropbox">Dropbox</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/file-sharing/GoogleDrive">Google Drive</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/file-sharing/OneDrive">One Drive</a>
 
 
 

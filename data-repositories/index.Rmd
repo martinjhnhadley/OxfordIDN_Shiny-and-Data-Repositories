@@ -1,0 +1,42 @@
+---
+title: "Data Repositories"
+author: "`r library(htmltools)
+HTML('<a href=http://idn.it.ox.ac.uk>Oxford University Interactive Data Network</a>')`"
+date: "`r paste0('Last Updated: ',format(Sys.time(), '%d %B, %Y'))`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+    css: ../gh-pages_global/gh-pages_navbar.css
+    includes:
+      in_header: ../gh-pages_global/_navbar.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+library(htmltools)
+```
+
+<a href="https://github.com/ox-it/OxfordIDN_Shiny-and-Data-Repositories/data-repositories" target="blank">  
+<img style="position: absolute; top: 0; right: 0; border: 0;",
+             src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png",
+             alt="Fork me on GitHub"/>
+</a>
+
+
+The repositories in this section all provide at least the following functionality:
+
+- Meta-data rich containers for research data
+- DOI for individual deposits
+- Controlled access, differs between service and may only apply to licensing of data
+
+Note that all repositories detailed have at least a free tier or otherwise are entirely free at the point of use.
+
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/Figshare">Figshare</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/ORA-Data">ORA-Data</a>
+- <a href="/OxfordIDN_Shiny-and-Data-Repositories/data-repositories/Figshare">Zenonod</a>
