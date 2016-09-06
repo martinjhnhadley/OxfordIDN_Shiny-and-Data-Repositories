@@ -34,7 +34,7 @@ Deposits include a small range of standard meta-data attributes, but a long-form
 
 Files attached to public deposits like the one used in this guide can be accessed directly via a URL or the Figshare API - https://ndownloader.figshare.com/files/5449739
 
-### Figshare API Access with rfigshare
+# Figshare API Access with rfigshare
 
 The <a href="https://github.com/ropensci/rfigshare">rfigshare</a> library provides access to the Figshare API, allowing the following operations to be performed:
 
@@ -52,7 +52,7 @@ fs_auth()
 
 For shiny apps it is necessary to locally store the authentication token returned by `fs_auth`, this is easily achieved by copying the `.httr-oauth` saved to the working directory by `fs_auth` into the shiny app directory. It is important to remember that the `.httr-oauth` file contains private information that would allow others access to your Figshare account, ensure to include this file in your `.gitignore` file if you are using git.
 
-### Browsing Figshare Deposits
+## Browsing Figshare Deposits
 
 It is possible to browse the entirety of Figshare through the `fig_browse` function, which returns a list of all deposits against your account.
 
@@ -87,7 +87,7 @@ Individual files attached to a Figshare article are detailed within a list store
 knitr::kable(as.data.frame(lapply(article_details$files,function(x){x[c("name","download_url")]})))
 ```
 
-### Reading Files
+## Reading Files
 
 Publically shared files in Figshare deposits are directly accessible via their ndownloader.figshare.com address, the file we're interested in is https://ndownloader.figshare.com/files/5360960. As with any web-hosted file, this can easily be downloaded into the working directory with the `download.file` function and then imported via `read.csv`
 
@@ -106,7 +106,27 @@ if(class(download_try) == "try-error"){
 }})
 ```
 
-### Local Caching of Files
+# Accessing with Shiny
+
+## Publishing to shinyapps.io
+
+The `rfigshare` library depends on a local copy of the `.httr-oath` file for authentification without an interactive environment, unfortunately the "publish" command in RStudio is poorly behaved - it will not upload the "hidden" `.httr-oath` file and your uploaded app will therefore not work!
+
+A good reference for this is hard to come by, but second-hand confirmation from RStudio themselves is available here: https://github.com/jennybc/googlesheets/issues/235#issuecomment-207507363.
+
+It is very easy to overcome this issue, simply deploy the app programmatically with these steps:
+
+1. Create a file called deployApp.R in the same directory as the Shiny app
+1. Add the following code:
+
+```{r, eval=F}
+library(shiny)
+library(rsconnect)
+deployApp()
+```
+
+
+## Local Caching of Files
 
 In this instance, caching means keeping a local copy of a dataset that is "replaced" if the remote file is updated. This provides two advantages, if Figshare is not available when the code is run the local copy provides a backup solution and it ensures the data is always as up to date as possible. In the case of a shiny app this requires persistant data stores, there is a fairly technical description of persistant data storage in shiny apps available <a href=http://shiny.rstudio.com/articles/persistent-data-storage.html>here</a> that is used as the template for the caching mechanism this tutorial describes. The procedure depends on the following paradigm:
 

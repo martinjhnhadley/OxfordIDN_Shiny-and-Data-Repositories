@@ -1,0 +1,58 @@
+---
+title: "Common Tricks"
+author: "`r library(htmltools)
+HTML('<a href=http://idn.it.ox.ac.uk>Oxford University Interactive Data Network</a>')`"
+date: "`r paste0('Last Updated: ',format(Sys.time(), '%d %B, %Y'))`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: false
+    css: ../gh-pages_global/gh-pages_navbar.css
+    includes:
+      in_header: ../gh-pages_global/_navbar.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+library(htmltools)
+```
+
+<a href="https://github.com/ox-it/OxfordIDN_Shiny-and-Data-Repositories/common-tricks" target="blank">  
+<img style="position: absolute; top: 0; right: 0; border: 0;",
+             src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png",
+             alt="Fork me on GitHub"/>
+</a>
+
+Many of the libraries and techniques discussed within this tutorial rely on a few "standard tricks" or rather, knowledge of specific programming patterns.
+
+# Non-Interactive Web Sessions
+
+The reason these tricks are required is because you are not in an interactive session.
+
+# .httr-oauth
+
+Require a local file
+
+## Publishing to Shiny Apps
+
+Shiny apps depend on a local copy of the `.httr-oath` file for authentification without an interactive environment, unfortunately the "publish" command in RStudio is poorly behaved - it will not upload the "hidden" `.httr-oath` file and your uploaded app will therefore not work!
+
+A good reference for this is hard to come by, but second-hand confirmation from RStudio themselves is available here: https://github.com/jennybc/googlesheets/issues/235#issuecomment-207507363.
+
+It is very easy to overcome this issue, simply deploy the app programmatically with these steps:
+
+1. Create a file called deployApp.R in the same directory as the Shiny app
+1. Add the following code:
+
+```{r, eval=F}
+library(shiny)
+library(rsconnect)
+deployApp()
+```
+
+
