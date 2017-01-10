@@ -12,3 +12,4 @@ render_rmd <- function(x){rmarkdown::render(x)}
 safe_render <- failwith(NA,render_rmd)
 
 lapply(all_files[grepl("index.Rmd", all_files)], function(x)safe_render(x))
+
